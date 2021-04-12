@@ -64,8 +64,8 @@ const showMovies = (movies) => {
 const getMovies = async (url) => {
   const res = await fetch(url)
   const data = await res.json()
-
-  showMovies(data.results)
+  console.log(data.results)
+  showMovies(data.results.sort((a, b) => a.vote_average - b.vote_average))
 }
 getMovies(API_URL)
 
